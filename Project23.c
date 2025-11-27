@@ -27,7 +27,8 @@ void bookingSystem()
      {
         void displaySeatMap(); // Placeholder for seat map function
         printf("Displaying seat map...\n");
-    } else 
+    } 
+    else 
     {
         printf("Invalid option selected.\n");
     }
@@ -63,7 +64,37 @@ void cancelBooking()
 }
 void displaySeatMap()
 {
-    // Logic for displaying the seat map      
+    // Logic for displaying the seat map     
+    printf("\n========= BUS SEAT MAP =========\n");
+
+    printf("O = Available   X = Booked\n\n");
+
+    int seat = 1;
+
+    for(int row = 1; row <= 13; row++)   // 13 rows = 52 seats (we use only 50)
+    {
+        // Left side seats
+        for(int col = 0; col < 2; col++)
+        {
+            if(seat <= 50)
+                printf("%2d(%c) ", seat, seats[seat-1] == 0 ? 'O' : 'X');
+            seat++;
+        }
+
+        printf("   ||   ");  // aisle
+
+        // Right side seats
+        for(int col = 0; col < 2; col++)
+        {
+            if(seat <= 50)
+                printf("%2d(%c) ", seat, seats[seat-1] == 0 ? 'O' : 'X');
+            seat++;
+        }
+
+        printf("\n");
+    }
+
+    printf("================================\n");
     printf("Seat Map displayed successfully!\n");
 }
 int main() 
