@@ -1,7 +1,7 @@
 #include <stdio.h>
-
-int seats[50] = {0};
-
+int Rows =12;
+int Cols =4;
+int seats[12][4];
 void bookingSystem() 
 {   
     printf("Welcome to the Booking System!\n");
@@ -64,38 +64,25 @@ void cancelBooking()
 }
 void displaySeatMap()
 {
-    // Logic for displaying the seat map     
-    printf("\n========= BUS SEAT MAP =========\n");
+    printf("\n=========== BUS SEAT MAP ===========\n");
+    printf("O = Available | X = Booked\n\n");
 
-    printf("O = Available   X = Booked\n\n");
+    int seatNumber = 1;
 
-    int seat = 1;
-
-    for(int row = 1; row <= 13; row++)   // 13 rows = 52 seats (we use only 50)
+    for(int i = 0; i < Rows; i++)
     {
-        // Left side seats
-        for(int col = 0; col < 2; col++)
+        for(int j = 0; j < Cols; j++)
         {
-            if(seat <= 50)
-                printf("%2d(%c) ", seat, seats[seat-1] == 0 ? 'O' : 'X');
-            seat++;
+            if(j == 2)
+                printf("   ||   ");   // Aisle
+
+            printf("%2d(%c) ", seatNumber,seats[i][j] == 0 ? 'O' : 'X');
+
+            seatNumber++;
         }
-
-        printf("   ||   ");  // aisle
-
-        // Right side seats
-        for(int col = 0; col < 2; col++)
-        {
-            if(seat <= 50)
-                printf("%2d(%c) ", seat, seats[seat-1] == 0 ? 'O' : 'X');
-            seat++;
-        }
-
         printf("\n");
     }
-
-    printf("================================\n");
-    printf("Seat Map displayed successfully!\n");
+    printf("====================================\n");
 }
 int main() 
 {
