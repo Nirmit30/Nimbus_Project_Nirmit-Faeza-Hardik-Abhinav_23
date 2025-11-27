@@ -1,4 +1,7 @@
 #include <stdio.h>
+
+int seats[50] = {0};
+
 void bookingSystem() 
 {   
     printf("Welcome to the Booking System!\n");
@@ -33,6 +36,22 @@ void bookingSystem()
 void bookTicket() 
 {
     // Logic for booking a ticket
+    int seatNumber;
+    printf("Enter seat number (1-50): ");
+    scanf("%d", &seatNumber);
+    
+    if(seatNumber < 1 || seatNumber > 50) {
+        printf("Invalid!\n");
+        return;
+    }
+    
+    if(seats[seatNumber - 1] == 1) {
+        printf("Already booked!\n");
+        return;
+    }
+    
+    seats[seatNumber - 1] = 1;
+    printf("Booked seat %d!\n", seatNumber);
 
     printf("Ticket booked successfully!\n");
 }
