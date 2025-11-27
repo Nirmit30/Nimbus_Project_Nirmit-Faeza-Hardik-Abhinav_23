@@ -15,7 +15,7 @@ void bookingSystem()
         printf("Booking a ticket...\n");
         void bookTicket(); // Placeholder for booking function  
     } 
-    \else if(choice == 'B') 
+    else if(choice == 'B') 
     {
         void cancelBooking(); // Placeholder for cancellation function
         printf("Cancelling a booking...\n");
@@ -29,4 +29,26 @@ void bookingSystem()
         printf("Invalid option selected.\n");
     }
     printf("Thank you for using the Booking System!\n");
+}
+void bookTicket() 
+{
+    // Logic for booking a ticket
+
+    printf("Ticket booked successfully!\n");
+}
+void cancelBooking()
+{
+    // Logic for cancelling a booking
+
+    printf("Booking cancelled successfully!\n");
+}
+void displaySeatMap()
+{
+    // Logic for displaying the seat map      
+    printf("Seat Map displayed successfully!\n");
+}
+int main() 
+{
+    bookingSystem();
+    return 0;
 }
