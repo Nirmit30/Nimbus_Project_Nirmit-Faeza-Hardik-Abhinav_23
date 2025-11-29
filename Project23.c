@@ -38,23 +38,25 @@ void bookTicket()
 {
     // Logic for booking a ticket
     int seatNumber;
-    printf("Enter seat number (1-50): ");
+    printf("Enter seat number (1–48): ");
     scanf("%d", &seatNumber);
-    
-    if(seatNumber < 1 || seatNumber > 50) {
-        printf("Invalid!\n");
-        return;
-    }
-    
-    if(seats[seatNumber - 1] == 1) {
-        printf("Already booked!\n");
-        return;
-    }
-    
-    seats[seatNumber - 1] = 1;
-    printf("Booked seat %d!\n", seatNumber);
 
-    printf("Ticket booked successfully!\n");
+    if(seatNumber < 1 || seatNumber > 48) 
+    {
+        printf("Invalid seat number!\n");
+        return;
+    }
+
+    int row = (seatNumber - 1) / Cols;
+    int col = (seatNumber - 1) % Cols;
+
+    if(seats[row][col] == 1) {
+        printf("Seat %d is already booked!\n", seatNumber);
+        return;
+    }
+
+    seats[row][col] = 1;
+    printf("Seat %d booked successfully!\n", seatNumber);
 }
 void cancelBooking()
 {
