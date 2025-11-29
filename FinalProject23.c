@@ -19,6 +19,32 @@ typedef struct {
 Bus buses[MAX_BUSES];
 
 // ---------------- WAITLIST FUNCTIONS ----------------
+int isWaitlistFull(Bus *b) {
+    return b->rear == WAITLIST_SIZE - 1;
+}
+
+int isWaitlistEmpty(Bus *b) {
+    return b->front > b->rear;
+}
+
+void addToWaitlist(Bus *b, int pid) {
+    if (isWaitlistFull(b)) {
+        printf("Waitlist full, cannot add more passengers!\n");
+        return;
+    }
+    b->rear++;
+    b->waitlist[b->rear] = pid;
+    printf("Passenger %d added to waitlist.\n", pid);
+}
+
+int removeFromWaitlist(Bus *b) {
+    if (isWaitlistEmpty(b))
+        return -1;
+    int p = b->waitlist[b->front];
+    b->front++;
+    return p;
+}
+
 
 //Abhinav Code 
 // ---------------- INITIALIZATION ----------------
