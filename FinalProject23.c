@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <string.h>
+
+#define ROWS 12
+#define COLS 4
+#define MAX_BUSES 2
+#define WAITLIST_SIZE 10
+
+// Structure for Bus
+typedef struct {
+    int id;
+    char route[50];
+    int seats[ROWS][COLS];   // 0 = empty, 1 = booked
+    int waitlist[WAITLIST_SIZE];
+    int front, rear;
+} Bus;
+
+// Global array for buses
+Bus buses[MAX_BUSES];
+
+// ---------------- WAITLIST FUNCTIONS ----------------
+
+//Abhinav Code 
+// ---------------- INITIALIZATION ----------------
+
+//Abhinav Code
+
+// ---------------- DISPLAY SEATS ----------------
+
+void showSeats(Bus *b) {
+    printf("\n========== BUS %d SEAT MAP ==========\n", b->id);
+    printf("Route: %s\n", b->route);
+    printf("O = empty   X = booked\n\n");
+
+    int seatNo = 1;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            printf("%2d(%c)\t", seatNo, b->seats[i][j] ? 'X' : 'O');
+            seatNo++;
+        }
+        printf("\n");
+    }
+    printf("====================================\n");
+}
+
+// ---------------- PRICING ----------------
+
+//Hardik Code
+// ---------------- BOOKING ----------------
+
+//Faeza Code
+
+
+// ---------------- CANCELLATION ----------------
+
+//Faeza Code
+
+// ---------------- BUS SELECTION ----------------
+
+//Hardik Code
+
+
+void menu() {
+    int ch;
+    initBuses();
+
+    while (1) {
+        printf("\n===== BUS BOOKING SYSTEM =====\n");
+        printf("1. Book Seat\n");
+        printf("2. Cancel Seat\n");
+        printf("3. Show Seat Map\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &ch);
+
+        Bus *bus;
+
+        switch (ch) {
+            case 1:
+                bus = selectBus();
+                if (bus) bookSeat(bus);
+                break;
+            case 2:
+                bus = selectBus();
+                if (bus) cancelSeat(bus);
+                break;
+            case 3:
+                bus = selectBus();
+                if (bus) showSeats(bus);
+                break;
+            case 4:
+                printf("\nThank you for using the Bus Booking System!\n");
+                return;
+            default:
+                printf("Invalid option! Please try again.\n");
+        }
+    }
+}
+
+// ---------------- MAIN FUNCTION ----------------
+
+int main() {
+    menu();
+    return 0;
+}
