@@ -48,6 +48,18 @@ int removeFromWaitlist(Bus *b) {
 
 //Abhinav Code 
 // ---------------- INITIALIZATION ----------------
+void initBuses() {
+    for (int b = 0; b < MAX_BUSES; b++) {
+        buses[b].id = b + 1;
+        sprintf(buses[b].route, "City %d -> City %d", b + 1, b + 2);
+        buses[b].front = 0;
+        buses[b].rear = -1;
+
+        for (int i = 0; i < ROWS; i++)
+            for (int j = 0; j < COLS; j++)
+                buses[b].seats[i][j] = 0;
+    }
+}
 
 //Abhinav Code
 
