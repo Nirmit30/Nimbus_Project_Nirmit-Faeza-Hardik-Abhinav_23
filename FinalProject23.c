@@ -80,7 +80,7 @@ void showSeats(Bus *b) {
     }
     printf("====================================\n");
 }
-
+//Hardik Code
 // ---------------- PRICING ----------------
 int seatPrice(int col) {
     if (col == 0 || col == 3)
@@ -88,7 +88,7 @@ int seatPrice(int col) {
     else
         return 400; // middle seat
 }
-//Hardik Code
+
 // ---------------- BOOKING ----------------
 
 //Faeza Code
@@ -162,44 +162,19 @@ void cancelSeat(Bus *b)
 // ---------------- BUS SELECTION ----------------
 
 //Hardik Code
+Bus* selectBus() {
+    int id;
+    printf("\nChoose Bus (1-%d): ", MAX_BUSES);
+    scanf("%d", &id);
 
-
-void menu() {
-    int ch;
-    initBuses();
-
-    while (1) {
-        printf("\n===== BUS BOOKING SYSTEM =====\n");
-        printf("1. Book Seat\n");
-        printf("2. Cancel Seat\n");
-        printf("3. Show Seat Map\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &ch);
-
-        Bus *bus;
-
-        switch (ch) {
-            case 1:
-                bus = selectBus();
-                if (bus) bookSeat(bus);
-                break;
-            case 2:
-                bus = selectBus();
-                if (bus) cancelSeat(bus);
-                break;
-            case 3:
-                bus = selectBus();
-                if (bus) showSeats(bus);
-                break;
-            case 4:
-                printf("\nThank you for using the Bus Booking System!\n");
-                return;
-            default:
-                printf("Invalid option! Please try again.\n");
-        }
+    if (id < 1 || id > MAX_BUSES) {
+        printf("Invalid bus selection!\n");
+        return NULL;
     }
+    return &buses[id - 1];
 }
+
+
 
 // ---------------- MAIN FUNCTION ----------------
 
