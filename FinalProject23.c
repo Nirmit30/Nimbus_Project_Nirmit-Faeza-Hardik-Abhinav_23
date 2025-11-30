@@ -107,6 +107,10 @@ void bookSeat(Bus *b) {
         addToWaitlist(b, pid);
         return;
     }
+    
+    b->seats[r][c] = 1;
+    printf("\nSeat %d booked successfully!\n", seatNo);
+    printf("Ticket price: Rs.%d\n", seatPrice(c));
 
 }
 
