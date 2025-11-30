@@ -10,21 +10,43 @@ The project is designed using structures, 2D arrays, functions, loops, and switc
 
 Features
 
-✅ 1. Multiple Buses
+1. Multiple Buses
 Supports more than one bus (configurable).
 Each bus has its own route and seat layout.
 
-✅ 2. Seat Booking
+2. Seat Booking
 Users can book any seat by entering the seat number.
 Automatically checks if the seat is already occupied.
 Window and aisle seats have different prices.
 
-✅ 3. Seat Cancellation
+3. Seat Cancellation
 Cancels a booked seat.
 Automatically fills the seat with the next waitlisted passenger, if available.
 
-✅ 4. Seat Map Display
+4. Seat Map Display
 Shows the full 12 × 4 seat arrangement (total 48 seats).
 Uses:
 O → Empty Seat
 X → Booked Seat
+
+5. Waitlist Management If the bus is full or seat is taken, the passenger is added to the waitlist. Waitlist works like a queue (FIFO order).
+
+6. Bus Summary 
+   Shows an overview of:
+   
+   I Total Seats
+   II Booked Seats
+   III Available Seats
+   IV Waitlisted Passengers
+    V Total Rvenue Generated
+
+7. Interactive Menu
+   The user gets choice such as:
+   
+    I Book Seat
+    II Cancel Seat
+    III Show Seat Map
+    IV Show Bus Summary
+     V Exit
+
+   
