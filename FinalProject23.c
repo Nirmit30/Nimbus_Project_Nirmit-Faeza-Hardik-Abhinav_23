@@ -46,7 +46,6 @@ int removeFromWaitlist(Bus *b) {
 }
 
 
-//Abhinav Code 
 // ---------------- INITIALIZATION ----------------
 void initBuses() {
     for (int b = 0; b < MAX_BUSES; b++) {
@@ -61,7 +60,6 @@ void initBuses() {
     }
 }
 
-//Abhinav Code
 
 // ---------------- DISPLAY SEATS ----------------
 
@@ -80,7 +78,6 @@ void showSeats(Bus *b) {
     }
     printf("====================================\n");
 }
-//Hardik Code
 
 // ---------------- PRICING ----------------
 int seatPrice(int col) {
@@ -92,7 +89,7 @@ int seatPrice(int col) {
 
 // ---------------- BOOKING ----------------
 
-//Faeza Code
+
 void bookSeat(Bus *b) 
 {
     int seatNo, pid;
@@ -125,7 +122,6 @@ void bookSeat(Bus *b)
 
 // ---------------- CANCELLATION ----------------
 
-//Faeza Code
 
 void cancelSeat(Bus *b) 
 {
@@ -162,7 +158,6 @@ void cancelSeat(Bus *b)
 
 // ---------------- BUS SUMMARY----------------
 
-//Hardik Code
 
 void busSummary(Bus *b) {
     int booked = 0;
@@ -193,7 +188,6 @@ void busSummary(Bus *b) {
 
 // ---------------- BUS SELECTION ----------------
 
-//Hardik Code
 Bus* selectBus() 
 {
     int id;
