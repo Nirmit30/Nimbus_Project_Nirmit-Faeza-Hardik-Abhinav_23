@@ -29,7 +29,8 @@ Uses:
 O → Empty Seat
 X → Booked Seat
 
-5. Waitlist Management If the bus is full or seat is taken, the passenger is added to the waitlist. Waitlist works like a queue (FIFO order).
+5. Waitlist Management 
+If the bus is full or seat is taken, the passenger is added to the waitlist. Waitlist works like a queue (FIFO order).
 
 6. Bus Summary 
    Shows an overview of:
