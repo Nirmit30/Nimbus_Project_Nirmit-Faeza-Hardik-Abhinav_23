@@ -80,10 +80,15 @@ void showSeats(Bus *b) {
     }
     printf("====================================\n");
 }
-
-// ---------------- PRICING ----------------
-
 //Hardik Code
+// ---------------- PRICING ----------------
+int seatPrice(int col) {
+    if (col == 0 || col == 3)
+        return 500; // window seat
+    else
+        return 400; // middle seat
+}
+
 // ---------------- BOOKING ----------------
 
 //Faeza Code
@@ -154,12 +159,53 @@ void cancelSeat(Bus *b)
 
 }
 
+// ---------------- BUS SUMMARY----------------
+//Hardik Code
+void busSummary(Bus *b) {
+    int booked = 0;
+    int revenue = 0;
+
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            if (b->seats[i][j] == 1) {
+                booked++;
+                revenue += seatPrice(j);
+            }
+        }
+    }
+
+    int waitCount = (b->rear - b->front + 1);
+    if (waitCount < 0) waitCount = 0;
+
+    printf("\n=========== BUS %d SUMMARY ===========\n", b->id);
+    printf("Route: %s\n", b->route);
+    printf("---------------------------------------\n");
+    printf("Total seats       : %d\n", ROWS * COLS);
+    printf("Seats booked      : %d\n", booked);
+    printf("Seats available   : %d\n", (ROWS * COLS) - booked);
+    printf("Waitlist count    : %d\n", waitCount);
+    printf("Total revenue     : Rs.%d\n", revenue);
+    printf("=======================================\n");
+}
+
 // ---------------- BUS SELECTION ----------------
 
 //Hardik Code
+Bus* selectBus() 
+{
+    int id;
+    printf("\nChoose Bus (1-%d): ", MAX_BUSES);
+    scanf("%d", &id);
+      if (id < 1 || id > MAX_BUSES) {
+        printf("Invalid bus selection!\n");
+        return NULL;
+    }
+    return &buses[id - 1];
+}
 
 
-void menu() {
+void menu() 
+{
     int ch;
     initBuses();
 
