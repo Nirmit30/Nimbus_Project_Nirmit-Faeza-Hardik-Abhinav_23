@@ -168,7 +168,8 @@ void menu() {
         printf("1. Book Seat\n");
         printf("2. Cancel Seat\n");
         printf("3. Show Seat Map\n");
-        printf("4. Exit\n");
+        printf("4. Bus Summary\n"); 
+        printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &ch);
 
@@ -188,6 +189,10 @@ void menu() {
                 if (bus) showSeats(bus);
                 break;
             case 4:
+                bus = selectBus();
+                if (bus) busSummary(bus);
+                break;
+            case 5:
                 printf("\nThank you for using the Bus Booking System!\n");
                 return;
             default:
