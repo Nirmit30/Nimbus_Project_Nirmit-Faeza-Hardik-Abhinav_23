@@ -81,6 +81,7 @@ void showSeats(Bus *b) {
     printf("====================================\n");
 }
 //Hardik Code
+
 // ---------------- PRICING ----------------
 int seatPrice(int col) {
     if (col == 0 || col == 3)
@@ -160,7 +161,9 @@ void cancelSeat(Bus *b)
 }
 
 // ---------------- BUS SUMMARY----------------
+
 //Hardik Code
+
 void busSummary(Bus *b) {
     int booked = 0;
     int revenue = 0;
@@ -202,8 +205,7 @@ Bus* selectBus()
     }
     return &buses[id - 1];
 }
-
-
+// ---------------- MENU ----------------
 void menu() 
 {
     int ch;
