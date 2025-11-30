@@ -82,7 +82,12 @@ void showSeats(Bus *b) {
 }
 
 // ---------------- PRICING ----------------
-
+int seatPrice(int col) {
+    if (col == 0 || col == 3)
+        return 500; // window seat
+    else
+        return 400; // middle seat
+}
 //Hardik Code
 // ---------------- BOOKING ----------------
 
