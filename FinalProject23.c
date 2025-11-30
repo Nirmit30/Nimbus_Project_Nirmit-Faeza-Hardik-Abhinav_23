@@ -135,6 +135,10 @@ void cancelSeat(Bus *b) {
         printf("Seat is not booked!\n");
         return;
     }
+
+    b->seats[r][c] = 0;
+    printf("Seat %d cancelled successfully.\n", seatNo);
+
 }
 
 // ---------------- BUS SELECTION ----------------
