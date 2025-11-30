@@ -49,17 +49,33 @@ X → Booked Seat
     IV Show Bus Summary
     V Exit
 
+Project Structure
+The program uses:
+✔ Structures
+To store bus details (route, seats, waitlist).
+✔ 2D Arrays
+To represent the seating layout for each bus.
+✔ Functions
+To handle booking, cancellation, showing seats, summary, waitlist operations, etc.
+✔ Switch-case menu
+For smooth user interaction.
+
 Why This Project Is Useful
+
 Demonstrates real-world logic using simple C programming concepts.
 Shows good use of data structures (arrays, structs, queue).
-Very suitable for college practicals, viva, and semester submissions.
+
 Possible Future Enhancements
-You can improve the project later by adding:
+We can improve the project later by adding:
 File handling (save and load bookings)
 Search passenger by ID
 Admin login
 Dynamic bus count
 Export summary to a text file
+
 Conclusion
+
 The Bus Booking System is a complete beginner-friendly project covering important concepts in C.
 It is simple, functional, and demonstrates good structured programming practices.   
+
+Collaborators-Nirmit Srivastava,Faeza Zafar,Hardik Shekhar,Abhinav
