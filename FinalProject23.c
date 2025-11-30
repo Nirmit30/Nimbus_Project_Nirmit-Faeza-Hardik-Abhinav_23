@@ -87,7 +87,28 @@ void showSeats(Bus *b) {
 // ---------------- BOOKING ----------------
 
 //Faeza Code
+void bookSeat(Bus *b) {
+    int seatNo, pid;
+    printf("\nEnter passenger ID: ");
+    scanf("%d", &pid);
+    printf("Enter seat number (1-48): ");
+    scanf("%d", &seatNo);
 
+    if (seatNo < 1 || seatNo > 48) {
+        printf("Invalid seat number!\n");
+        return;
+    }
+
+    int r = (seatNo - 1) / COLS;
+    int c = (seatNo - 1) % COLS;
+
+    if (b->seats[r][c] == 1) {
+        printf("Seat already booked! Adding passenger to waitlist...\n");
+        addToWaitlist(b, pid);
+        return;
+    }
+
+}
 
 // ---------------- CANCELLATION ----------------
 
