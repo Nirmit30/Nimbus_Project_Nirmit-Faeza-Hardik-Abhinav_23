@@ -87,14 +87,16 @@ void showSeats(Bus *b) {
 // ---------------- BOOKING ----------------
 
 //Faeza Code
-void bookSeat(Bus *b) {
+void bookSeat(Bus *b) 
+{
     int seatNo, pid;
     printf("\nEnter passenger ID: ");
     scanf("%d", &pid);
     printf("Enter seat number (1-48): ");
     scanf("%d", &seatNo);
 
-    if (seatNo < 1 || seatNo > 48) {
+    if (seatNo < 1 || seatNo > 48) 
+    {
         printf("Invalid seat number!\n");
         return;
     }
@@ -102,7 +104,8 @@ void bookSeat(Bus *b) {
     int r = (seatNo - 1) / COLS;
     int c = (seatNo - 1) % COLS;
 
-    if (b->seats[r][c] == 1) {
+    if (b->seats[r][c] == 1) 
+    {
         printf("Seat already booked! Adding passenger to waitlist...\n");
         addToWaitlist(b, pid);
         return;
@@ -118,12 +121,14 @@ void bookSeat(Bus *b) {
 
 //Faeza Code
 
-void cancelSeat(Bus *b) {
+void cancelSeat(Bus *b) 
+{
     int seatNo;
     printf("\nEnter seat number to cancel: ");
     scanf("%d", &seatNo);
 
-    if (seatNo < 1 || seatNo > 48) {
+    if (seatNo < 1 || seatNo > 48) 
+    {
         printf("Invalid seat number!\n");
         return;
     }
@@ -131,13 +136,21 @@ void cancelSeat(Bus *b) {
     int r = (seatNo - 1) / COLS;
     int c = (seatNo - 1) % COLS;
 
-    if (b->seats[r][c] == 0) {
+    if (b->seats[r][c] == 0) 
+    {
         printf("Seat is not booked!\n");
         return;
     }
 
     b->seats[r][c] = 0;
     printf("Seat %d cancelled successfully.\n", seatNo);
+
+    int next = removeFromWaitlist(b);
+    if (next != -1) 
+    {
+        printf("Seat given to waitlisted passenger %d.\n", next);
+        b->seats[r][c] = 1;
+    }
 
 }
 
